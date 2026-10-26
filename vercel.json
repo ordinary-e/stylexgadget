@@ -1,0 +1,37 @@
+{
+  "version": 2,
+  "functions": {
+    "api/index.ts": {
+      "includeFiles": "{dist/**,data/**,index.html}"
+    },
+    "api/sitemap.ts": {
+      "maxDuration": 15
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/sitemap",
+      "destination": "/api/sitemap"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/api/sitemap"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/uploads/:path*",
+      "destination": "/api/index"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/api/sitemap?type=robots"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/api/index"
+    }
+  ]
+}
